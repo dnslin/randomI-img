@@ -1,7 +1,6 @@
 from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
-import os
 
 # SQLite数据库URL
 SQLALCHEMY_DATABASE_URL = "sqlite:///./images.db"
