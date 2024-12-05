@@ -12,6 +12,9 @@ COPY . .
 # 创建数据库目录
 RUN mkdir -p /app/data
 
+# 设置环境变量
+ENV DB_DIR=/app/data
+
 # 暴露端口
 EXPOSE 8000
 
