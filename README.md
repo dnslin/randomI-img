@@ -7,7 +7,7 @@
 - 随机返回图片URL
 - 支持直接重定向到图片
 - 支持JSON格式返回图片信息
-- 使用MySQL存储图片URL
+- 使用SQLite本地数据库存储图片URL
 
 ## 安装
 
@@ -17,9 +17,6 @@
 ```bash
 pip install -r requirements.txt
 ```
-
-3. 配置环境变量：
-复制 `.env.example` 到 `.env` 并修改数据库配置
 
 ## 运行
 
@@ -35,11 +32,14 @@ uvicorn main:app --reload
 
 ## 数据库结构
 
+SQLite数据库文件位置：`images.db`
+
+表结构：
+
 ```sql
-CREATE TABLE `image_urls` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `page` int DEFAULT NULL,
-  `url` text,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+CREATE TABLE image_urls (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    page INTEGER,
+    url TEXT
+);
 ``` 
